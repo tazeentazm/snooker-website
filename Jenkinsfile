@@ -8,20 +8,18 @@ pipeline {
         }
         stage('Install') {
             steps {
-                // Run npm install
-                sh 'npm install'
+                sh 'npm install' // Installs project dependencies
             }
         }
         stage('Test') {
             steps {
-                // Run npm test
-                sh 'npm test'
+                sh 'npm test' // Runs the test suite
             }
         }
         stage('Deploy') {
             steps {
                 script {
-                    // Add deployment logic here
+                    // Add your deployment logic here
                     echo "Deploying the application..."
                 }
             }
