@@ -1,23 +1,30 @@
 pipeline {
     agent any
     stages {
-        stage('Clone Code') {
+        stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/tazeentazm/snooker-website.git'
             }
         }
-        stage('Build') {
+        stage('Install') {
             steps {
-                echo 'No build required for static sites'
+                script {
+                    sh 'npm install'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    sh 'npm test'
+                }
             }
         }
         stage('Deploy') {
             steps {
-                sh '''
-                # Deploy locally or via SSH
-                scp -r * user@remote-server:/var/www/static-site
-                echo "Deployment complete!"
-                '''
+                script {
+                    // Add your deployment logic here
+                }
             }
         }
     }
