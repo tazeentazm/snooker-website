@@ -9,14 +9,20 @@ pipeline {
         stage('Install') {
             steps {
                 script {
-                    sh 'npm install'
+                    // Using an explicit closure
+                    { 
+                        sh 'npm install'
+                    }.call()
                 }
             }
         }
         stage('Test') {
             steps {
                 script {
-                    sh 'npm test'
+                    // Using an explicit closure
+                    { 
+                        sh 'npm test'
+                    }.call()
                 }
             }
         }
@@ -29,3 +35,4 @@ pipeline {
         }
     }
 }
+
