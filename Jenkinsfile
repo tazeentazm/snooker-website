@@ -8,24 +8,21 @@ pipeline {
         }
         stage('Install') {
             steps {
-                script {
-                    // Corrected syntax
-                    sh 'npm install'
-                }
+                // Run npm install
+                sh 'npm install'
             }
         }
         stage('Test') {
             steps {
-                script {
-                    // Corrected syntax
-                    sh 'npm test'
-                }
+                // Run npm test
+                sh 'npm test'
             }
         }
         stage('Deploy') {
             steps {
                 script {
-                    // Add your deployment logic here
+                    // Add deployment logic here
+                    echo "Deploying the application..."
                 }
             }
         }
