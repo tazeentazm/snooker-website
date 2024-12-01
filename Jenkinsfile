@@ -9,8 +9,8 @@ pipeline {
         stage('Install') {
             steps {
                 script {
-                    // Using an explicit closure
-                    { 
+                    // Using explicit closure syntax
+                    { it ->
                         sh 'npm install'
                     }.call()
                 }
@@ -19,8 +19,8 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    // Using an explicit closure
-                    { 
+                    // Using explicit closure syntax
+                    { it ->
                         sh 'npm test'
                     }.call()
                 }
